@@ -19,7 +19,7 @@ f= @(t,x) [x(2);K*9*(1-x(1)^2)*x(2)-K^2*x(1)+K^2*F(t)];
 %f= @(t,x) [x(2);K*9*(1-x(1)^2)*x(2)+K^2*F(t)];
 step=1;
 
-sol = rungeKutta(f,limits,initial,step)
+[t,sol] = rungeKutta(f,limits,initial,step)
 
 audiowrite("forcedvdp.wav",sol(:,1)/max(abs(sol(:,1))),sr)
 %audiowrite("force.wav",force,sr)
